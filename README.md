@@ -1,5 +1,5 @@
 # kur
-`kur` is a simple bash script to help me set up a new Fedora system.
+`kur` is a simple shell script to help me set up a new Fedora system.
 
 # Usage
 Its usage is pretty straightforward. The script should be executable but if it isn't, go to the folder you cloned the repository into and then type `chmod +x kur.sh`. You can then type `./kur.sh` to run it.
