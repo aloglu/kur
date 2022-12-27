@@ -37,90 +37,92 @@ for opt in $selection
 do
     case $opt in
         1)
-            sudo dnf install polybar rofi zsh geoip git gh alacritty xinput xset playerctl ffmpeg
+            echo -e "\n\033[${BIGreen} 🌀 Installing everything...\033[0m\n"
+            sudo dnf install polybar rofi zsh geoip git gh alacritty xinput xset playerctl ffmpeg -y
+            echo -e "\n $triu \n"
             ;;
         2)
             echo -e "\n\033[${BIGreen} 🌀 Installing Polybar...\033[0m\n"
-            sudo dnf install polybar
-            echo -e "\n $trid \n"
+            sudo dnf install polybar -y
+            echo -e "\n $triu \n"
             ;;
         3)
             echo -e "\n\033[${BIGreen} 🌀 Installing Rofi...\033[0m\n"
-            sudo dnf install rofi
-            echo -e "\n $trid \n"
+            sudo dnf install rofi -y
+            echo -e "\n $triu \n"
             ;;
         4)
             echo -e "\n\033[${BIGreen} 🌀 Installing zsh...\033[0m\n"
-            sudo dnf install zsh
-            echo -e "\n $trid \n"
+            sudo dnf install zsh -y
+            echo -e "\n $triu \n"
             ;;
         5)
             echo -e "\n\033[${BIGreen} 🌀 Installing GeoIP...\033[0m\n"
-            sudo dnf install geoip
-            echo -e "\n $trid \n"
+            sudo dnf install geoip -y
+            echo -e "\n $triu \n"
             ;;
         6)
             echo -e "\n\033[${BIGreen} 🌀 Installing git...\033[0m\n"
-            sudo dnf install git
-            echo -e "\n $trid \n"
+            sudo dnf install git -y
+            echo -e "\n $triu \n"
             ;;
         7)
             echo -e "\n\033[${BIGreen} 🌀 Installing gh...\033[0m\n"
-            sudo dnf install gh
-            echo -e "\n $trid \n"
+            sudo dnf install gh -y
+            echo -e "\n $triu \n"
             ;;
         8)
             echo -e "\n\033[${BIGreen} 🌀 Installing oh-my-zsh...\033[0m\n"
             sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-            echo -e "\n $trid \n"
+            echo -e "\n $triu \n"
             ;;
         9)
             echo -e "\n\033[${BIGreen} 🌀 Installing p10k...\033[0m\n"
             git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
             echo -e "\n\033[${BIWhite} ❗ Add\033[0m \033[${BIRed}ZSH_THEME="powerlevel10k/powerlevel10k"\033[0m \033[${BIWhite}to your .zshrc file!\033[0m\n"
-            echo -e "\n $trid \n"
+            echo -e "\n $triu \n"
             ;;
         10)
             echo -e "\n\033[${BIGreen} 🌀 Installing zsh-autosuggestions...\033[0m\n"
             git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
             echo -e "\n\033[${BIWhite} ❗ Add\033[0m \033[${BIRed}zsh-autosuggestions\033[0m \033[${BIWhite}to your .zshrc file's plugin section!\033[0m\n"
-            echo -e "\n $trid \n"
+            echo -e "\n $triu \n"
             ;;
         11)
             echo -e "\n\033[${BIGreen} 🌀 Installing zsh-syntax-highlighting...\033[0m\n"
             git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
             echo -e "\n\033[${BIWhite} ❗ Add\033[0m \033[${BIRed}zsh-syntax-highlighting\033[0m \033[${BIWhite}to your .zshrc file's plugin section!\033[0m\n"
-            echo -e "\n $trid \n"
+            echo -e "\n $triu \n"
             ;;
         12)
             echo -e "\n\033[${BIGreen} 🌀 Installing Alacritty...\033[0m\n"
-            sudo dnf install alacritty
-            echo -e "\n $trid \n"
+            sudo dnf install alacritty -y
+            echo -e "\n $triu \n"
             ;;
         13)
             echo -e "\n\033[${BIGreen} 🌀 Installing xinput...\033[0m\n"
-            sudo dnf install xinput
-            echo -e "\n $trid \n"
+            sudo dnf install xinput -y
+            echo -e "\n $triu \n"
             ;;
         14)
             echo -e "\n\033[${BIGreen} 🌀 Installing xset...\033[0m\n"
-            sudo dnf install xset
-            echo -e "\n $trid \n"
+            sudo dnf install xset -y
+            echo -e "\n $triu \n"
             ;;
         15)
             echo -e "\n\033[${BIGreen} 🌀 Installing playerctl...\033[0m\n"
-            sudo dnf install playerctl
-            echo -e "\n $trid \n"
+            sudo dnf install playerctl -y
+            echo -e "\n $triu \n"
             ;;
         16)
             echo -e "\n\033[${BIGreen} 🌀 Installing ffmpeg...\033[0m\n"
-            sudo dnf install ffmpeg
-            echo -e "\n $trid \n"
+            sudo dnf install ffmpeg -y
+            echo -e "\n $triu \n"
             ;;
         17)
             echo -e "\n\033[${BIGreen} 📦 Enabling Flathub repository...\033[0m\n"
             flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-            echo -e "\n $trid \n"
+            echo -e "\n $triu \n"
             ;;
         18)
             echo -e -n "\033[${BIWhite}Are you starting from scratch? (see: https://github.com/aloglu/dotfiles#installation) (y/n): \033[0m"
