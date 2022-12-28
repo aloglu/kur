@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Import colors
-. kur/src/colors.sh
+. $HOME/kur/src/colors.sh
 
 # Check package manager
 if command -v dnf >/dev/null; then
