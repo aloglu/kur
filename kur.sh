@@ -1,35 +1,63 @@
 #!/bin/bash
 
-# Import variables
-. ./src/var.sh
-. ./src/colors.sh
+# Import colors
+. kur/src/colors.sh
+
+# Check package manager
+if command -v dnf >/dev/null; then
+  # Fedora
+  PM="dnf"
+  PM_CMD="dnf install"
+  PM_NAME="Fedora"
+elif command -v apt >/dev/null; then
+  # Debian/Ubuntu
+  PM="apt"
+  PM_CMD="apt install"
+  PM_NAME="Debian/Ubuntu"
+elif command -v pacman >/dev/null; then
+  # Arch/Manjaro
+  PM="pacman"
+  PM_CMD="pacman -S"
+  PM_NAME="Arch/Manjaro"
+elif command -v brew >/dev/null; then
+  # macOS/Linux
+  PM="brew"
+  PM_CMD="brew install"
+  PM_NAME="macOS"
+else
+  # Manually declare package manager if necessary
+  echo -e -n "\n\033[${HighBoldWhite}What package manager do you use? (e.g. dnf, apt, pacman, brew): \033[0m"
+  read PM
+  PM_NAME="Custom"
+fi
+
+# Package manager output and the initial question
+echo -e "\n\033[${HighBoldWhite}You seem to be using a \033[${HighBoldBlue}$PM_NAME\033 \033[${HighBoldWhite} system. What would you like to install using\033 \033[${HighBoldBlue} $PM\033 \033[${HighBoldWhite}?\033[0m\n"
 
 # Options
-echo -e "\n\033[${BIWhite}What would you like to install?\033[0m\n"
+echo -e "0. \033[${HighBoldRed}Nothing\033[0m"
+echo -e "1. \033[${HighBoldGreen}Everything\033[0m\n"
 
-echo -e "0. \033[${BIRed}Nothing\033[0m"
-echo -e "1. \033[${BIBlue}Everything\033[0m\n"
-
-echo -e "2. \033[${BIYellow}Polybar\033[0m"
-echo -e "3. \033[${BIYellow}Rofi\033[0m"
-echo -e "4. \033[${BIYellow}zsh\033[0m"
-echo -e "5. \033[${BIYellow}GeoIP\033[0m"
-echo -e "6. \033[${BIYellow}git\033[0m"
-echo -e "7. \033[${BIYellow}gh\033[0m"
-echo -e "8. \033[${BIYellow}oh-my-zsh\033[0m"
-echo -e "9. \033[${BIYellow}p10k\033[0m"
-echo -e "10. \033[${BIYellow}zsh-autosuggestions\033[0m"
-echo -e "11. \033[${BIYellow}zsh-syntax-highlighting\033[0m"
-echo -e "12. \033[${BIYellow}Alacritty\033[0m"
-echo -e "13. \033[${BIYellow}xinput\033[0m"
-echo -e "14. \033[${BIYellow}xset\033[0m"
-echo -e "15. \033[${BIYellow}playerctl\033[0m"
-echo -e "16. \033[${BIYellow}ffmpeg\033[0m"
-echo -e "17. \033[${BIYellow}Flathub repository\033[0m"
-echo -e "18. \033[${BIYellow}dotfiles\033[0m\n"
+echo -e "2. \033[${HighBoldYellow}Polybar\033[0m"
+echo -e "3. \033[${HighBoldYellow}Rofi\033[0m"
+echo -e "4. \033[${HighBoldYellow}zsh\033[0m"
+echo -e "5. \033[${HighBoldYellow}GeoIP\033[0m"
+echo -e "6. \033[${HighBoldYellow}git\033[0m"
+echo -e "7. \033[${HighBoldYellow}gh\033[0m"
+echo -e "8. \033[${HighBoldYellow}oh-my-zsh\033[0m"
+echo -e "9. \033[${HighBoldYellow}p10k\033[0m"
+echo -e "10. \033[${HighBoldYellow}zsh-autosuggestions\033[0m"
+echo -e "11. \033[${HighBoldYellow}zsh-syntax-highlighting\033[0m"
+echo -e "12. \033[${HighBoldYellow}Alacritty\033[0m"
+echo -e "13. \033[${HighBoldYellow}xinput\033[0m"
+echo -e "14. \033[${HighBoldYellow}xset\033[0m"
+echo -e "15. \033[${HighBoldYellow}playerctl\033[0m"
+echo -e "16. \033[${HighBoldYellow}ffmpeg\033[0m"
+echo -e "17. \033[${HighBoldYellow}Flathub repository\033[0m"
+echo -e "18. \033[${HighBoldYellow}dotfiles\033[0m\n"
 
 # Selection
-echo -e -n "\033[${BIWhite}Type in your selection, preferably with a space in between: \033[0m"
+echo -e -n "\033[${HighBoldWhite}Type in your selection, with a space in between: \033[0m"
 read selection
 
 # Commands
@@ -37,95 +65,95 @@ for opt in $selection
 do
     case $opt in
         1)
-            echo -e "\n\033[${BIGreen} 🌀 Installing everything...\033[0m\n"
-            sudo dnf install polybar rofi zsh geoip git gh alacritty xinput xset playerctl ffmpeg -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing everything...\033[0m\n"
+            sudo $PM_CMD polybar rofi zsh geoip git gh alacritty xinput xset playerctl ffmpeg -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         2)
-            echo -e "\n\033[${BIGreen} 🌀 Installing Polybar...\033[0m\n"
-            sudo dnf install polybar -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing Polybar...\033[0m\n"
+            sudo $PM_CMD polybar -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         3)
-            echo -e "\n\033[${BIGreen} 🌀 Installing Rofi...\033[0m\n"
-            sudo dnf install rofi -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing Rofi...\033[0m\n"
+            sudo $PM_CMD rofi -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         4)
-            echo -e "\n\033[${BIGreen} 🌀 Installing zsh...\033[0m\n"
-            sudo dnf install zsh -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing zsh...\033[0m\n"
+            sudo $PM_CMD zsh -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         5)
-            echo -e "\n\033[${BIGreen} 🌀 Installing GeoIP...\033[0m\n"
-            sudo dnf install geoip -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing GeoIP...\033[0m\n"
+            sudo $PM_CMD geoip -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         6)
-            echo -e "\n\033[${BIGreen} 🌀 Installing git...\033[0m\n"
-            sudo dnf install git -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing git...\033[0m\n"
+            sudo $PM_CMD git -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         7)
-            echo -e "\n\033[${BIGreen} 🌀 Installing gh...\033[0m\n"
-            sudo dnf install gh -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing gh...\033[0m\n"
+            sudo $PM_CMD gh -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         8)
-            echo -e "\n\033[${BIGreen} 🌀 Installing oh-my-zsh...\033[0m\n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing oh-my-zsh...\033[0m\n"
             sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-            echo -e "\n $triu \n"
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         9)
-            echo -e "\n\033[${BIGreen} 🌀 Installing p10k...\033[0m\n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing p10k...\033[0m\n"
             git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-            echo -e "\n\033[${BIWhite} ❗ Add\033[0m \033[${BIRed}ZSH_THEME="powerlevel10k/powerlevel10k"\033[0m \033[${BIWhite}to your .zshrc file!\033[0m\n"
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldWhite} ❗ Add\033[0m \033[${HighBoldRed}ZSH_THEME="powerlevel10k/powerlevel10k"\033[0m \033[${HighBoldWhite}to your .zshrc file!\033[0m\n"
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         10)
-            echo -e "\n\033[${BIGreen} 🌀 Installing zsh-autosuggestions...\033[0m\n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing zsh-autosuggestions...\033[0m\n"
             git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-            echo -e "\n\033[${BIWhite} ❗ Add\033[0m \033[${BIRed}zsh-autosuggestions\033[0m \033[${BIWhite}to your .zshrc file's plugin section!\033[0m\n"
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldWhite} ❗ Add\033[0m \033[${HighBoldRed}zsh-autosuggestions\033[0m \033[${HighBoldWhite}to your .zshrc file's plugin section!\033[0m\n"
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         11)
-            echo -e "\n\033[${BIGreen} 🌀 Installing zsh-syntax-highlighting...\033[0m\n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing zsh-syntax-highlighting...\033[0m\n"
             git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-            echo -e "\n\033[${BIWhite} ❗ Add\033[0m \033[${BIRed}zsh-syntax-highlighting\033[0m \033[${BIWhite}to your .zshrc file's plugin section!\033[0m\n"
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldWhite} ❗ Add\033[0m \033[${HighBoldRed}zsh-syntax-highlighting\033[0m \033[${HighBoldWhite}to your .zshrc file's plugin section!\033[0m\n"
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         12)
-            echo -e "\n\033[${BIGreen} 🌀 Installing Alacritty...\033[0m\n"
-            sudo dnf install alacritty -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing Alacritty...\033[0m\n"
+            sudo $PM_CMD alacritty -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         13)
-            echo -e "\n\033[${BIGreen} 🌀 Installing xinput...\033[0m\n"
-            sudo dnf install xinput -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing xinput...\033[0m\n"
+            sudo $PM_CMD xinput -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         14)
-            echo -e "\n\033[${BIGreen} 🌀 Installing xset...\033[0m\n"
-            sudo dnf install xset -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing xset...\033[0m\n"
+            sudo $PM_CMD xset -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         15)
-            echo -e "\n\033[${BIGreen} 🌀 Installing playerctl...\033[0m\n"
-            sudo dnf install playerctl -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing playerctl...\033[0m\n"
+            sudo $PM_CMD playerctl -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         16)
-            echo -e "\n\033[${BIGreen} 🌀 Installing ffmpeg...\033[0m\n"
-            sudo dnf install ffmpeg -y
-            echo -e "\n $triu \n"
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing ffmpeg...\033[0m\n"
+            sudo $PM_CMD ffmpeg -y
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         17)
-            echo -e "\n\033[${BIGreen} 📦 Enabling Flathub repository...\033[0m\n"
+            echo -e "\n\033[${HighBoldGreen} 📦 Enabling Flathub repository...\033[0m\n"
             flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-            echo -e "\n $triu \n"
+            echo -e "\n ▲ ▲ ▲ \n"
             ;;
         18)
-            echo -e -n "\033[${BIWhite}Are you starting from scratch? (see: https://github.com/aloglu/dotfiles#installation) (y/n): \033[0m"
+            echo -e -n "\033[${HighBoldWhite}Are you starting from scratch? (see: https://github.com/aloglu/dotfiles#installation) (y/n): \033[0m"
             read answer
                 if [ "$answer" = "y" ]; then
                     git init --bare $HOME/.dotfiles &&
@@ -146,16 +174,16 @@ do
                     dotfiles checkout &&ech
                     dotfiles config --local status.showUntrackedFiles no
                 else
-                    echo -e "\n\033[${BIRed}$answer\033[0m \033[${BIWhite}is not a valid option. Quitting the script.\033\n"
+                    echo -e "\n\033[${HighBoldRed}$answer\033[0m \033[${HighBoldWhite}is not a valid option. Quitting the script.\033\n"
                     exit
                 fi
             ;;
         0)
-            echo -e "\n\033[${BIWhite}Okay, then.\033[0m\n"
+            echo -e "\n\033[${HighBoldWhite}Okay, then. 👋\033[0m\n"
             exit
             ;;
         *)
-            echo -e "\n\033[${BIRed}$opt\033[0m \033[${BIWhite}is not a valid option. Quitting the script.\033\n"
+            echo -e "\n\033[${HighBoldRed}$opt\033[0m \033[${HighBoldWhite}is not a valid option. Quitting the script.\033\n"
             ;;
     esac
 done
