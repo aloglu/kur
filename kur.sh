@@ -153,7 +153,7 @@ do
             echo -e "\n ▲ ▲ ▲ \n"
             ;;
         18)
-            echo -e -n "\033[${HighBoldWhite}Are you starting from scratch? (see: https://github.com/aloglu/dotfiles#installation) (y/n): \033[0m"
+            echo -e -n "\n\033[${HighBoldWhite}Are you starting from scratch? (see: https://github.com/aloglu/dotfiles#installation) (y/n): \033[0m"
             read answer
                 if [ "$answer" = "y" ]; then
                     git init --bare $HOME/.dotfiles &&
