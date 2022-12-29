@@ -53,8 +53,9 @@ echo -e "13. \033[${HighBoldYellow}xinput\033[0m"
 echo -e "14. \033[${HighBoldYellow}xset\033[0m"
 echo -e "15. \033[${HighBoldYellow}playerctl\033[0m"
 echo -e "16. \033[${HighBoldYellow}ffmpeg\033[0m"
-echo -e "17. \033[${HighBoldYellow}Flathub repository\033[0m"
-echo -e "18. \033[${HighBoldYellow}dotfiles\033[0m\n"
+echo -e "17. \033[${HighBoldYellow}nnn\033[0m"
+echo -e "18. \033[${HighBoldYellow}Flathub repository\033[0m"
+echo -e "19. \033[${HighBoldYellow}dotfiles\033[0m\n"
 
 # Selection
 echo -e -n "\033[${HighBoldWhite}Type in your selection, with a space in between: \033[0m"
@@ -148,11 +149,16 @@ do
             echo -e "\n ▲ ▲ ▲ \n"
             ;;
         17)
+            echo -e "\n\033[${HighBoldGreen} 🌀 Installing nnn...\033[0m\n"
+            sudo $PM_CMD nnn -y
+            echo -e "\n ▲ ▲ ▲ \n"
+            ;;
+        18)
             echo -e "\n\033[${HighBoldGreen} 📦 Enabling Flathub repository...\033[0m\n"
             flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
             echo -e "\n ▲ ▲ ▲ \n"
             ;;
-        18)
+        19)
             echo -e -n "\n\033[${HighBoldWhite}Are you starting from scratch? (see: https://github.com/aloglu/dotfiles#installation) (y/n): \033[0m"
             read answer
                 if [ "$answer" = "y" ]; then
