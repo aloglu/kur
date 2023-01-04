@@ -3,6 +3,9 @@
 # Import colors
 . $HOME/kur/src/colors.sh
 
+# Clear the screen
+tput clear
+
 # Check package manager
 if command -v dnf >/dev/null; then
   # Fedora
