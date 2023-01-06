@@ -14,11 +14,11 @@ elif command -v pacman >/dev/null; then
   PM="pacman"
   PM_CMD="pacman -S"
   PM_NAME="Arch/Manjaro"
-elif command -v brew >/dev/null; then
+# elif command -v brew >/dev/null; then
   # macOS/Linux
-  PM="brew"
-  PM_CMD="brew install"
-  PM_NAME="macOS"
+  # PM="brew"
+  # PM_CMD="brew install"
+  # PM_NAME="macOS"
 else
   # Manually declare package manager if necessary
   echo -e -n "\n\033[${HighBoldWhite}What package manager do you use? (e.g. dnf, apt, pacman, brew): \033[0m"
