@@ -1,4 +1,5 @@
-# Check package manager
+# Package manager check
+
 if command -v dnf >/dev/null; then
   # Fedora
   PM="dnf"

@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Imports
-. $HOME/kur/src/pm.sh
-. $HOME/kur/src/func.sh
-. $HOME/kur/src/colors.sh
+source src/pm.sh
+source src/functions.sh
+source src/colors.sh
 
 # Clear the screen
 tput clear
 
-# Package manager output and the initial question
+# Initial question
 echo -e "\n\033[${HighBoldWhite}You seem to be using a \033[${HighBoldCyan}$PM_NAME\033 \033[${HighBoldWhite} system. What would you like to install using\033 \033[${HighBoldCyan} $PM\033 \033[${HighBoldWhite}?\033[0m\n"
 
 # Options
@@ -30,22 +30,23 @@ echo -e "10. \033[${HighBoldYellow}mc\033[0m"
 echo -e "11. \033[${HighBoldYellow}exa\033[0m"
 echo -e "12. \033[${HighBoldYellow}git\033[0m"
 echo -e "13. \033[${HighBoldYellow}gh\033[0m"
-echo -e "14. \033[${HighBoldYellow}tldr-pages\033[0m"
-echo -e "15. \033[${HighBoldYellow}GeoIP\033[0m\n"
+echo -e "14. \033[${HighBoldYellow}NetHogs\033[0m"
+echo -e "15. \033[${HighBoldYellow}GeoIP\033[0m"
+echo -e "16. \033[${HighBoldYellow}tldr-pages\033[0m\n"
 
 echo -e "    \033[${HighBoldBlue}System\033[0m"
-echo -e "16. \033[${HighBoldYellow}xinput\033[0m"
-echo -e "17. \033[${HighBoldYellow}xset\033[0m"
-echo -e "18. \033[${HighBoldYellow}Enable Flathub repository\033[0m\n"
+echo -e "17. \033[${HighBoldYellow}xinput\033[0m"
+echo -e "18. \033[${HighBoldYellow}xset\033[0m"
+echo -e "19. \033[${HighBoldYellow}Enable Flathub repository\033[0m\n"
 
 echo -e "    \033[${HighBoldBlue}Media\033[0m"
-echo -e "19. \033[${HighBoldYellow}ffmpeg\033[0m"
-echo -e "20. \033[${HighBoldYellow}playerctl\033[0m\n"
+echo -e "20. \033[${HighBoldYellow}ffmpeg\033[0m"
+echo -e "21. \033[${HighBoldYellow}playerctl\033[0m\n"
 
 echo -e "    \033[${HighBoldBlue}Customization\033[0m"
-echo -e "21. \033[${HighBoldYellow}Polybar\033[0m"
-echo -e "22. \033[${HighBoldYellow}Rofi\033[0m"
-echo -e "23. \033[${HighBoldYellow}dotfiles\033[0m\n"
+echo -e "22. \033[${HighBoldYellow}Polybar\033[0m"
+echo -e "23. \033[${HighBoldYellow}Rofi\033[0m"
+echo -e "24. \033[${HighBoldYellow}dotfiles\033[0m\n"
 
 # Selection
 echo -e -n "\033[${HighBoldWhite}Type in your selection, with a space in between: \033[0m"
@@ -95,33 +96,36 @@ do
             gh
             ;;
         14)
-            tldr
+            nethogs
             ;;
         15)
             geoip
             ;;
         16)
-            xinput
+            tldr
             ;;
         17)
-            xset
+            xinput
             ;;
         18)
-            flathub
+            xset
             ;;
         19)
-            ffmpeg
+            flathub
             ;;
         20)
-            playerctl
+            ffmpeg
             ;;
         21)
-            polybar
+            playerctl
             ;;
         22)
-            rofi
+            polybar
             ;;
         23)
+            rofi
+            ;;
+        24)
             dotfiles
             ;;
         0)

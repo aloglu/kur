@@ -1,4 +1,4 @@
-#!/bin/bash
+# Functions
 
 function everything() {
     alacritty;
@@ -13,8 +13,9 @@ function everything() {
     exa;
     git;
     gh;
-    tldr;
+    nethogs;
     geoip;
+    tldr;
     xinput;
     xset;
     flathub;
@@ -99,15 +100,21 @@ function gh() {
     echo -e "\n\033[${HighBoldGreen} ▲ ▲ ▲ \n\033[0m\n"
 }
 
-function tldr() {
-    echo -e "\n\033[${HighBoldGreen} 🌀 Installing tldr-pages...\033[0m\n"
-    sudo $PM_CMD tldr -y
+function nethogs() {
+    echo -e "\n\033[${HighBoldGreen} 🌀 Installing NetHogs...\033[0m\n"
+    sudo $PM_CMD nethogs -y
     echo -e "\n\033[${HighBoldGreen} ▲ ▲ ▲ \n\033[0m\n"
 }
 
 function geoip() {
     echo -e "\n\033[${HighBoldGreen} 🌀 Installing GeoIP...\033[0m\n"
     sudo $PM_CMD geoip -y
+    echo -e "\n\033[${HighBoldGreen} ▲ ▲ ▲ \n\033[0m\n"
+}
+
+function tldr() {
+    echo -e "\n\033[${HighBoldGreen} 🌀 Installing tldr-pages...\033[0m\n"
+    sudo $PM_CMD tldr -y
     echo -e "\n\033[${HighBoldGreen} ▲ ▲ ▲ \n\033[0m\n"
 }
 
