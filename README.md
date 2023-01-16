@@ -8,3 +8,5 @@ The script should be executable out of the box but if it isn't, go to the folder
 
 # Notes
 `kur` includes a set up of my [`dotfiles`](https://github.com/aloglu/dotfiles), but it's optional. `dotfiles` is excluded from the option that installs everything.
+
+`gur` is the exact same script, but unlike `kur` it uses [`gum`](https://github.com/charmbracelet/gum) so it's [prettier](https://raw.githubusercontent.com/aloglu/kur/master/screenshots/gur.png).
