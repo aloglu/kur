@@ -26,7 +26,7 @@ echo -e "8.  \033[${HighBoldYellow}zsh-syntax-highlighting\033[0m\n"
 
 echo -e "    \033[${HighBoldBlue}Utilities\033[0m"
 echo -e "9.  \033[${HighBoldYellow}btop\033[0m"
-echo -e "10. \033[${HighBoldYellow}mc\033[0m"
+echo -e "10. \033[${HighBoldYellow}nnn\033[0m"
 echo -e "11. \033[${HighBoldYellow}exa\033[0m"
 echo -e "12. \033[${HighBoldYellow}git\033[0m"
 echo -e "13. \033[${HighBoldYellow}gh\033[0m"
@@ -40,13 +40,14 @@ echo -e "18. \033[${HighBoldYellow}xset\033[0m"
 echo -e "19. \033[${HighBoldYellow}Enable Flathub repository\033[0m\n"
 
 echo -e "    \033[${HighBoldBlue}Media\033[0m"
-echo -e "20. \033[${HighBoldYellow}ffmpeg\033[0m"
-echo -e "21. \033[${HighBoldYellow}playerctl\033[0m\n"
+echo -e "20. \033[${HighBoldYellow}cmus\033[0m"
+echo -e "21. \033[${HighBoldYellow}ffmpeg\033[0m"
+echo -e "22. \033[${HighBoldYellow}playerctl\033[0m\n"
 
 echo -e "    \033[${HighBoldBlue}Customization\033[0m"
-echo -e "22. \033[${HighBoldYellow}Polybar\033[0m"
-echo -e "23. \033[${HighBoldYellow}Rofi\033[0m"
-echo -e "24. \033[${HighBoldYellow}dotfiles\033[0m\n"
+echo -e "23. \033[${HighBoldYellow}Polybar\033[0m"
+echo -e "24. \033[${HighBoldYellow}Rofi\033[0m"
+echo -e "25. \033[${HighBoldYellow}dotfiles\033[0m\n"
 
 # Selection
 echo -e -n "\033[${HighBoldWhite}Type in your selection, with a space in between: \033[0m"
@@ -84,7 +85,7 @@ do
             btop
             ;;
         10)
-            mc
+            nnn
             ;;
         11)
             exa
@@ -114,18 +115,21 @@ do
             flathub
             ;;
         20)
-            ffmpeg
+            cmus
             ;;
         21)
-            playerctl
+            ffmpeg
             ;;
         22)
-            polybar
+            playerctl
             ;;
         23)
-            rofi
+            polybar
             ;;
         24)
+            rofi
+            ;;
+        25)
             dotfiles
             ;;
         0)

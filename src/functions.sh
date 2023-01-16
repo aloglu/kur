@@ -9,7 +9,7 @@ function everything() {
     zsh-autosuggestions;
     zsh-syntax-highlighting;
     btop;
-    mc;
+    nnn;
     exa;
     git;
     gh;
@@ -18,6 +18,7 @@ function everything() {
     tldr;
     xinput;
     xset;
+    cmus;
     flathub;
     ffmpeg;
     playerctl;
@@ -76,9 +77,9 @@ function btop() {
     echo -e "\n\033[${HighBoldGreen} ▲ ▲ ▲ \n\033[0m\n"
 }
 
-function mc() {
-    echo -e "\n\033[${HighBoldGreen} 🌀 Installing Midnight Commander...\033[0m\n"
-    sudo $PM_CMD mc -y
+function nnn() {
+    echo -e "\n\033[${HighBoldGreen} 🌀 Installing nnn...\033[0m\n"
+    sudo $PM_CMD nnn -y
     echo -e "\n\033[${HighBoldGreen} ▲ ▲ ▲ \n\033[0m\n"
 }
 
@@ -134,6 +135,12 @@ function flathub() {
     echo -e "\n\033[${HighBoldGreen} 📦 Enabling Flathub repository...\033[0m\n"
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo &&
     echo -e "\033[${HighBoldWhite} ✅ Done\033[0m"
+    echo -e "\n\033[${HighBoldGreen} ▲ ▲ ▲ \n\033[0m\n"
+}
+
+function cmus() {
+    echo -e "\n\033[${HighBoldGreen} 🌀 Installing cmus...\033[0m\n"
+    sudo $PM_CMD cmus -y
     echo -e "\n\033[${HighBoldGreen} ▲ ▲ ▲ \n\033[0m\n"
 }
 
