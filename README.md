@@ -2,6 +2,23 @@
 
 **kur** is an interactive, TUI-based setup script aimed at streamlining Fedora Workstation configuration. It automates software installation, repository management, and system maintenance with a clean interface powered by `gum`.
 
+<div align="center">
+<table border="0">
+  <tr>
+    <td><a href="img/main-menu.png"><img src="img/main-menu.png" alt="Main Menu" width="180"/></a></td>
+    <td><a href="img/install-menu.png"><img src="img/install-menu.png" alt="Install Menu" width="180"/></a></td>
+    <td><a href="img/uninstall-menu.png"><img src="img/uninstall-menu.png" alt="Uninstall Menu" width="180"/></a></td>
+    <td><a href="img/sysinfo.png"><img src="img/sysinfo.png" alt="System Info" width="180"/></a></td>
+  </tr>
+  <tr>
+    <td align="center">Main Menu</td>
+    <td align="center">Install Menu</td>
+    <td align="center">Uninstall Menu</td>
+    <td align="center">System Info</td>
+  </tr>
+</table>
+</div>
+
 ## Features
 
 - **Smart Installation**: Automatically handles dependencies and explicitly enables required repositories (Terra, RPM Fusion, Flathub) only when needed.
@@ -36,3 +53,7 @@
 *   **Productivity**: 1Password, Obsidian, Dropbox, Timeshift
 *   **Media/Social**: Discord, Spotify, Steam, mpv
 *   **System**: Mullvad VPN, btop
+
+## License
+
+Released under the [MIT License](https://github.com/aloglu/kur/blob/main/LICENSE).
