@@ -1,6 +1,6 @@
 # kur
 
-**kur** is an interactive, TUI-based setup script aimed at streamlining Fedora Workstation configuration. It automates software installation, repository management, and system maintenance with a clean interface powered by `gum`.
+**kur** is an interactive, TUI-based setup script aimed at streamlining Fedora Workstation configuration. It automates software installation, repository management, and system maintenance with a clean interface powered by [`gum`](https://github.com/charmbracelet/gum).
 
 <div align="center">
 <table border="0">
