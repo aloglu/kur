@@ -1,12 +1,38 @@
 # kur
-`kur` is a personalized shell script to help me set up a new Fedora system. It can also be used on other systems, as it's package manager agnostic.
 
-Since the script installs specific applications, I don't expect it to be used by anyone else but me. That being said, feel free to customize it to your needs.
+**kur** is an interactive, TUI-based setup script aimed at streamlining Fedora Workstation configuration. It automates software installation, repository management, and system maintenance with a clean interface powered by `gum`.
 
-# Usage
-The script should be executable out of the box but if it isn't, go to the folder you cloned the repository into and then type `chmod +x kur.sh`. You can then type `./kur.sh` to run it.
+## Features
 
-# Notes
-`kur` includes a set up of my [`dotfiles`](https://github.com/aloglu/dotfiles), but it's optional. `dotfiles` is excluded from the option that installs everything.
+- **Smart Installation**: Automatically handles dependencies and explicitly enables required repositories (Terra, RPM Fusion, Flathub) only when needed.
+- **Repository Management**: Quickly toggle RPM Fusion (Free/Non-Free), Terra (Fyra Labs), and Flathub.
+- **App Management**: Robust installer/uninstaller that tracks changes and detects pre-installed GNOME applications.
+- **System Maintenance**: Unified menu for system updates (`dnf`), Flatpak updates, and cache cleanup.
+- **System Information**: Detailed view of hardware specs, OS version, kernel, and resource usage.
+- **Context-Aware UI**: Live repository status checks, smart filtering for uninstall menus, and support for custom package input.
+- **Safe Execution**: Caches `sudo` credentials carefully and provides a session-based action log.
 
-`gur` is the exact same script, but unlike `kur` it uses [`gum`](https://github.com/charmbracelet/gum) so it's [prettier](https://raw.githubusercontent.com/aloglu/kur/master/screenshots/gur.png).
+## Usage
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/aloglu/kur.git
+    cd kur
+    ```
+
+2.  Make executable and run:
+    ```bash
+    chmod +x kur
+    ./kur
+    ```
+
+> **Note**: The script requires `gum`. If not found, it will offer to install it automatically via DNF.
+
+## Included Software
+
+**kur** offers a curated selection of essential apps based on personal preference, handling their specific installation methods. You can also easily add your own applications:
+
+*   **Development**: Zed, Neovim, Ghostty, fzf
+*   **Productivity**: 1Password, Obsidian, Dropbox, Timeshift
+*   **Media/Social**: Discord, Spotify, Steam, mpv
+*   **System**: Mullvad VPN, btop
